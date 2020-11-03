@@ -1,0 +1,79 @@
+<html>
+<head>
+  <title>Quiz Program</title>
+  <link rel = "stylesheet" href = "Game_Show.css">
+  <script>
+  var score = 0;
+  var questionCount = 0;
+  function gradeQuiz()
+  {
+    if(questionCount == 0)
+    {
+        document.getElementById("question 2").style.visibility = "visible";
+        document.getElementById("question 1").style.visibility = "hidden";
+
+      var ans = document.getElementById("answer").value;
+      if(ans == "George Washington")
+      {
+      score = score + 1;
+      }
+      //check if the user answer is equal to something
+      //add one to score if it is correct
+      //add one to questionCount to advance to the next question
+    }
+    if(questionCount == 1)
+    {
+      document.getElementById("question 3").style.visibility = "visible";
+      document.getElementById("question 2").style.visibility = "hidden";
+      var ans = document.getElementById("answer").value;
+      if(ans == "8")
+      {
+        score = score + 1;
+      }
+    }
+      if(questionCount == 2)
+      {
+        document.getElementById("question 1").style.visibility = "hide";
+        document.getElementById("question 2").style.visibility = "hide";
+        document.getElementById("question 3").innerHTML = "What color is the sky?";
+        var ans = document.getElementById("answer").value;
+        if(ans == "blue")
+        {
+          score = score + 1;
+        }
+      }
+      questionCount = questionCount + 1;
+      end();
+  }
+  function end()
+  {
+    if(questionCount == 3)
+    {
+      document.getElementById("answer").style.visibility = "hidden";
+      document.getElementById("enter").style.visibility = "hidden";
+      document.getElementById("question 3").style.visibility = "hidden";
+      document.getElementById("endText").innerHTML = "<br> Congratulations!Your score is:" + score + " <br> Who was the first President of the U.S.A: George Washington <br> How many planets are in our solar system: 8 <br> What color is the sky: blue";
+      //Hide and reveal stuff
+    }
+  }
+
+  function hide()
+  {
+    document.getElementById("question 2").style.visibility = "hidden";
+    document.getElementById("question 3").style.visibility = "hidden";
+  }
+  </script>
+</head>
+
+<body onload = "hide()">
+<h1>Quiz 4 u</h1>
+<span id = "question 1">Who was the first President of the U.S.A?</span>
+<span id = "question 2">How many planets are in our solar system?</span>
+<span id = "question 3">What color is the sky?</span>
+<input type = "text" id = "answer">
+<input type = "button" id = "enter" value = "Submit Answer" onclick = "gradeQuiz()">
+<span id = "endText"></span>
+<!--Hide and reveal stuff-->
+</body>
+
+</html>
